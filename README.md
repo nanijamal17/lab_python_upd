@@ -10,4 +10,7 @@ La différence vient du fait que, en UTF-8, chaque caractère peut être encodé
 les sockets UDP envoient toujours des données brutes, c’est-à-dire des bytes, parce que le réseau ne connaît pas la notion de texte.
 
 
-les deux sont des fonctions de hachage, mais elles ont des tailles différentes. SHA-256, comme son nom l’indique, produit un résumé de 256 bits, donc il donne un hachage de 64 caractères hexadécimaux. SHA-1, lui, produit un résumé de 160 bits, donc il donne un hachage de 40 caractères hexadécimaux. Autrement dit, SHA-256 est plus long et plus sécurisé, alors que SHA-1 est plus court, mais aujourd’hui il est considéré comme plus vulnérable aux collisions.
+les deux font référence au calcul du hachage, mais ils renvoient des formats différents. La méthode digest() retourne le hachage sous forme de bytes bruts, alors que hexdigest() retourne le hachage sous forme de chaîne hexadécimale lisible. Donc, si on veut stocker ou afficher le hachage, on utilise hexdigest(), mais si on a besoin de manipuler les bytes bruts (par exemple pour un stockage binaire), on utilise digest().
+
+
+un nonce, c’est comme un petit nombre aléatoire qu’on utilise une seule fois dans un échange. Son but, c’est de garantir que chaque interaction est unique. En empêchant les messages de se répéter, il évite les attaques par rejeu, où un attaquant pourrait simplement réenvoyer un vieux message pour tromper le système. Donc, le nonce apporte une garantie d’unicité et de fraîcheur au message.
