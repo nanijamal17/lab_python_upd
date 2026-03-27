@@ -8,3 +8,6 @@ La différence vient du fait que, en UTF-8, chaque caractère peut être encodé
 
 
 les sockets UDP envoient toujours des données brutes, c’est-à-dire des bytes, parce que le réseau ne connaît pas la notion de texte.
+
+
+les deux sont des fonctions de hachage, mais elles ont des tailles différentes. SHA-256, comme son nom l’indique, produit un résumé de 256 bits, donc il donne un hachage de 64 caractères hexadécimaux. SHA-1, lui, produit un résumé de 160 bits, donc il donne un hachage de 40 caractères hexadécimaux. Autrement dit, SHA-256 est plus long et plus sécurisé, alors que SHA-1 est plus court, mais aujourd’hui il est considéré comme plus vulnérable aux collisions.
